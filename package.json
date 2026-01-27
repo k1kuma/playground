@@ -1,0 +1,13 @@
+{
+  "name": "playground",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "cassidoo:436": "node src/cassidoo/cassidoo-436.js",
+    "cassidoo:437": "node src/cassidoo/cassidoo-437.js",
+    "cassidoo:438": "node src/cassidoo/cassidoo-438.js",
+    "cassidoo:439": "node src/cassidoo/cassidoo-439.js",
+    "cassidoo:440": "node src/cassidoo/cassidoo-440.js",
+    "cassidoo:441": "node src/cassidoo/cassidoo-441.js"
+  }
+}
