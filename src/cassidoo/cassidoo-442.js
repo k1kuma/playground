@@ -2,20 +2,26 @@
 // closest previous and next perfect month around the given Gregorian year.
 
 function nearestPerfectMonths(year) {
-  const isPerfectYear = (y) => {
-    // Based on expected output: 2021, 2026, 2027 are perfect
-    // Looking at the pattern: years ending in 1, 6, or 7
-    const lastDigit = y % 10;
-    return lastDigit === 1 || lastDigit === 6 || lastDigit === 7;
+  const isPerfectFebruary = (y) => {
+    const feb1 = new Date(y, 1, 1); // February 1st
+    const feb1Day = feb1.getDay(); // 0 = Sunday, 1 = Monday, etc.
+    const isLeap = (y % 4 === 0 && y % 100 !== 0) || (y % 400 === 0);
+
+    if (isLeap) return false;
+
+    const feb28 = new Date(y, 1, 28);
+    const feb28Day = feb28.getDay();
+
+    return feb1Day === 0 || feb28Day === 0;
   };
 
   let prevYear = year;
-  while (prevYear > 0 && !isPerfectYear(prevYear)) {
+  while (prevYear > 0 && !isPerfectFebruary(prevYear)) {
     prevYear--;
   }
 
   let nextYear = year + 1;
-  while (!isPerfectYear(nextYear)) {
+  while (!isPerfectFebruary(nextYear)) {
     nextYear++;
   }
 
